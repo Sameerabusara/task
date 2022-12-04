@@ -68,7 +68,7 @@ class _homePageState extends State<homePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Main"),
+        title: Text("Task"),
       ),
       body: Visibility(
         visible: isloaded,
@@ -114,7 +114,10 @@ class _homePageState extends State<homePage> {
                                       Icon(Icons.mail_outline),
                                       Padding(
                                         padding: const EdgeInsets.all(4.0),
-                                        child: Text(users![index].email),
+                                        child: Text(
+                                          users![index].email,
+                                          style: TextStyle(fontSize: 15),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -126,7 +129,10 @@ class _homePageState extends State<homePage> {
                                       Icon(Icons.phone_enabled_outlined),
                                       Padding(
                                         padding: const EdgeInsets.all(4.0),
-                                        child: Text(users![index].phone),
+                                        child: Text(
+                                          users![index].phone,
+                                          style: TextStyle(fontSize: 15),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -138,7 +144,10 @@ class _homePageState extends State<homePage> {
                                       Icon(Icons.wifi),
                                       Padding(
                                         padding: const EdgeInsets.all(4.0),
-                                        child: Text(users![index].website),
+                                        child: Text(
+                                          users![index].website,
+                                          style: TextStyle(fontSize: 15),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -163,10 +172,14 @@ class _homePageState extends State<homePage> {
                                     : Icon(Icons.favorite_border),
                               ),
                             ),
-                            Text('|'),
+                            Text(
+                              '|',
+                              style: TextStyle(
+                                  fontSize: 30, color: Colors.grey[300]),
+                            ),
                             Expanded(
                               child: IconButton(
-                                color: Colors.grey[700],
+                                color: Colors.grey[500],
                                 icon: Icon(Icons.create_outlined),
                                 onPressed: () async {
                                   this.num = index;
@@ -189,10 +202,14 @@ class _homePageState extends State<homePage> {
                                 },
                               ),
                             ),
-                            Text('|'),
+                            Text(
+                              '|',
+                              style: TextStyle(
+                                  fontSize: 30, color: Colors.grey[300]),
+                            ),
                             Expanded(
                               child: IconButton(
-                                color: Colors.grey[700],
+                                color: Colors.grey[600],
                                 icon: Icon(Icons.delete),
                                 onPressed: () {
                                   setState(() {
@@ -292,7 +309,16 @@ class _homePageState extends State<homePage> {
               ),
             ),
             actions: [
-              ElevatedButton(onPressed: cancle, child: Text("Cancle")),
+              TextButton(
+                onPressed: cancle,
+                style: TextButton.styleFrom(
+                  side: BorderSide(width: 1.0),
+                ),
+                child: Text(
+                  'Cancle',
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
               ElevatedButton(onPressed: ok, child: Text("Ok"))
             ],
           ));
